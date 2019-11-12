@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import Model.Car;
+import Model.User;
 
 public class HibernateDAO {
 	
@@ -95,7 +96,23 @@ public class HibernateDAO {
 }
 	
 	
-	
+public boolean snimiUsera(User user) {
+		
+		Session sesija = factory.openSession();
+			sesija.beginTransaction();
+			
+			try {
+				sesija.save(user);
+				sesija.getTransaction().commit();
+				System.out.println();
+				return true;
+			} catch (Exception e) {
+				sesija.getTransaction().rollback();
+				return false;
+			} finally {
+				sesija.close();
+			}
+	}
 	
 	
 	

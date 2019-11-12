@@ -6,6 +6,9 @@ import org.hibernate.cfg.Configuration;
 
 import Controler.HibernateDAO;
 import Model.Car;
+import Model.User;
+import Model.VizitCar;
+import Model.VrstaVozila;
 
 public class GlavnaHibernateKlasa {
 
@@ -36,6 +39,7 @@ public class GlavnaHibernateKlasa {
 		
 		
 		HibernateDAO dao = new HibernateDAO();
+		//15 cas
 		//Car car = new Car("maserati", "ghilbi", 2017, 0.18 , true);
 		//dao.snimiAutoUBazu(car);
 		
@@ -44,11 +48,31 @@ public class GlavnaHibernateKlasa {
 		System.out.println("Uzeo si auto " + car.getMarka() + " " + car.getModel());
 		System.out.println("Nova cena je " + car.getCena());*/
 		
-		if (dao.delateCar(1)) {
-			System.out.println("Obrisan je auto ");
-		} else {
-			System.out.println("Auto nije obrisan ");
-		}
+		//if (dao.delateCar(1)) {
+			//System.out.println("Obrisan je auto ");
+		//} else {
+			//System.out.println("Auto nije obrisan ");
+		//}
+		
+		//16 cas 
+		Car car = new Car("Lend Rover", "Discoovery", 2018, 39990, false, VrstaVozila.SUV);
+		
+		VizitCar vizitCar = new VizitCar();
+		vizitCar.setIme("Ruzica");
+		vizitCar.setEmail("ruza@gmail.com");
+		vizitCar.setBrTelefona("0641234567");
+		
+		
+		
+		User user = new User();
+		user.setUserName("Ruza");
+		user.setPassword("ruzaprogramer123");
+		user.setNovcanik(100000);
+		user.setVizitCar(vizitCar);
+		
+		dao.snimiAutoUBazu(car);
+		dao.snimiUsera(user);
+		
 		
 		
 		

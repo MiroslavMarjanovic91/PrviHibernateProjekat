@@ -1,6 +1,7 @@
 package Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,19 +19,36 @@ public class Car {
 	private double cena; 
 	private boolean registracija;
 	
+	//enum koji dodajemo 
+   @Enumerated
+   private VrstaVozila vrstaVozila;
+	
+	
+	
 	public Car() {
 		
 	}
 	
-	public Car(String marka, String model, int godiste, double cena, boolean registracija) {
+	public Car(String marka, String model, int godiste, double cena, boolean registracija, VrstaVozila vrstaVozila) {
 		this.marka = marka;
 		this.model = model;
 		this.godiste = godiste;
 		this.cena = cena; 
 		this.registracija = registracija;
+		this.vrstaVozila = vrstaVozila;
 	}
 	
 	
+	
+	
+	public VrstaVozila getVrstaVozila() {
+		return vrstaVozila;
+	}
+
+	public void setVrstaVozila(VrstaVozila vrstaVozila) {
+		this.vrstaVozila = vrstaVozila;
+	}
+
 	public int getIdCar() {
 		return idCar;
 	}

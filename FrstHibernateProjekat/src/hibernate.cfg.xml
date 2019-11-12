@@ -29,10 +29,11 @@
 		<!-- Drop and re-create the database schema on startup -->
 		<!-- ovde create ako ne izmenimo, gazi vec postojecu bazu -->
 		<!-- zato umesto create stavimo update -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 		
 		<!-- Names the annotated entity class -->
 		<mapping class="Model.Car"/>
+		<mapping class="Model.User"/>
 		
 
 	</session-factory>
