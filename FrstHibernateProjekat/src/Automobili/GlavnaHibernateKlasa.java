@@ -39,6 +39,8 @@ public class GlavnaHibernateKlasa {
 		
 		
 		HibernateDAO dao = new HibernateDAO();
+		dao.linkujUseraIauto(1, 1);
+		
 		//15 cas
 		//Car car = new Car("maserati", "ghilbi", 2017, 0.18 , true);
 		//dao.snimiAutoUBazu(car);
@@ -55,7 +57,7 @@ public class GlavnaHibernateKlasa {
 		//}
 		
 		//16 cas 
-		Car car = new Car("Lend Rover", "Discoovery", 2018, 39990, false, VrstaVozila.SUV);
+	/*	Car car = new Car("Lend Rover", "Discoovery", 2018, 39990, false, VrstaVozila.SUV);
 		
 		VizitCar vizitCar = new VizitCar();
 		vizitCar.setIme("Ruzica");
@@ -70,8 +72,11 @@ public class GlavnaHibernateKlasa {
 		user.setNovcanik(100000);
 		user.setVizitCar(vizitCar);
 		
+	
 		dao.snimiAutoUBazu(car);
+		
 		dao.snimiUsera(user);
+*/		
 		
 		
 		

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +17,9 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	
+	
+	//primitivni tipovi podataka
 	private int idUser;
 	//menjamo ime u tabeli 
 	@Column(name = "user_name")
@@ -26,8 +30,18 @@ public class User {
 	//imoportujemo iz clase VizitCar
 	@Embedded //ovo je polje vezuje sa klasom VizitCar 
 	private VizitCar VizitCar;
+	//veza 1 na 1
+	@OneToOne
+	private Car auto;
 	
 	
+	
+	public Car getAuto() {
+		return auto;
+	}
+	public void setAuto(Car auto) {
+		this.auto = auto;
+	}
 	public VizitCar getVizitCar() {
 		return VizitCar;
 	}
