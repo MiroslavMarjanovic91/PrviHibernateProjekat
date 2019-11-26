@@ -30,9 +30,5 @@ public class VizitCar {
 		this.email = email;
 	}
 	
-	
-	
-	
-	
 
 }

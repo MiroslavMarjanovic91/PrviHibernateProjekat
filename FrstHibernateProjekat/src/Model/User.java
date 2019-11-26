@@ -1,11 +1,17 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,26 +34,37 @@ public class User {
 	private double novcanik;
 	
 	//imoportujemo iz clase VizitCar
-	@Embedded //ovo je polje vezuje sa klasom VizitCar 
-	private VizitCar VizitCar;
-	//veza 1 na 1
-	@OneToOne
-	private Car auto;
+	//@Embedded //ovo je polje vezuje sa klasom VizitCar 
+	
+	@ElementCollection //Anotacija za listu podataka, kada se vezujemo za velju objekat
+	private List<VizitCar> vizitCars = new ArrayList<VizitCar>();
+	
+	
+	//veza jedan na vise
+	//List je interfesj, a ArryLista je klasa koja implementira List
+	//interfejs klasa metoda 
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "korisnik") //lista usera u automobili i listu automobila u useru
+	//svaki put kad trazi usera iz baze ucitava i listu, ako radimo sa velikim bazama
+	private List<Car> automobili = new ArrayList<Car>();
+	//ovo je lista entiteta
+
 	
 	
 	
-	public Car getAuto() {
-		return auto;
+	
+	public List<Car> getAutomobili() {
+		return automobili;
 	}
-	public void setAuto(Car auto) {
-		this.auto = auto;
+	public List<VizitCar> getVizitCars() {
+		return vizitCars;
 	}
-	public VizitCar getVizitCar() {
-		return VizitCar;
+	public void setVizitCars(List<VizitCar> vizitCars) {
+		this.vizitCars = vizitCars;
 	}
-	public void setVizitCar(VizitCar vizitCar) {
-		VizitCar = vizitCar;
+	public void setAutomobili(List<Car> automobili) {
+		this.automobili = automobili;
 	}
+	
 	public int getIdUser() {
 		return idUser;
 	}

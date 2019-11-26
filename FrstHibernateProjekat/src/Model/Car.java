@@ -5,6 +5,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 //anotacija 
 @Entity //entiteti su objekti relagno sveta koje zelimo mapirati 
@@ -24,7 +25,7 @@ public class Car {
    @Enumerated
    private VrstaVozila vrstaVozila;
    
-   @OneToOne
+   @ManyToOne
    private User korisnik; 
    
    
