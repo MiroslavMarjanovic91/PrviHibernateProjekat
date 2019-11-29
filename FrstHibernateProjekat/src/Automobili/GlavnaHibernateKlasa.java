@@ -9,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 
 import Controler.HibernateDAO;
 import Model.Car;
+import Model.Kupac;
+import Model.Prodavac;
 import Model.User;
 import Model.VizitCar;
 import Model.VrstaVozila;
@@ -137,8 +139,8 @@ public class GlavnaHibernateKlasa {
 		
 		
 		//20. dvadeseti cas
-		HibernateDAO dao = new HibernateDAO();
-		//iz baze izvukao dva automobila
+		//HibernateDAO dao = new HibernateDAO();
+/*		//iz baze izvukao dva automobila
 		
 		Car auto1 = dao.vratiAutoPoID(1);
 		Car auto2 = dao.vratiAutoPoID(2);
@@ -155,7 +157,7 @@ public class GlavnaHibernateKlasa {
 		if(dao.daLiUserImaDovoljnoParaZaAutomobile(user, ruziniAutici)) {
 			//ovde spajamo usera i automobile
 			dao.spojiUseraIcar(user, ruziniAutici);
-		} 
+		} */
 		
 		
 		
@@ -197,6 +199,27 @@ public class GlavnaHibernateKlasa {
 		
 		dao.snimiUsera(user);*/
 		
+		
+		
+		//21. dvadesetprvi cas 
+		HibernateDAO dao = new HibernateDAO();
+		
+		
+		User user = new User();
+		user.setUserName("Pera");
+
+		Prodavac prodavac = new Prodavac();
+		prodavac.setUserName("Elvis");
+		prodavac.setPib(1);
+		
+		Kupac kupac = new Kupac();
+		kupac.setUserName("Milica");
+		kupac.setJmbg("7845863214789");
+		
+		
+		dao.snimiUsera(user);
+		dao.snimiUsera(prodavac);
+		dao.snimiUsera(kupac);
 		
 		
 		

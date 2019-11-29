@@ -179,7 +179,7 @@ public void spojiUseraIcar(User user,List<Car>ListaAutomobila) {
 	
    
 	 double krajnjaCena=0;
-	user.setNovcanik(user.getNovcanik()-krajnjaCena);
+	
 	
 	
 	try {
@@ -188,6 +188,7 @@ public void spojiUseraIcar(User user,List<Car>ListaAutomobila) {
 			krajnjaCena+=car.getCena();
 			
 		}
+		user.setNovcanik(user.getNovcanik()-krajnjaCena);
 		    sesija.update(user);
 		    System.out.println("Sve je ok !");
 			sesija.getTransaction().commit();
