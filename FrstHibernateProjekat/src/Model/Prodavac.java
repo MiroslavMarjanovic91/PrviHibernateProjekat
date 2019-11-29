@@ -4,7 +4,10 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity //novi entitet
-@DiscriminatorValue("sales_manager") // ovo u bazi menja Prodavca u sales_mangera
+
+/*@DiscriminatorValue("sales_manager") // ovo u bazi menja Prodavca u sales_mangera
+//ovo je samo za single table strategy */
+
 public class Prodavac extends User {
 	
 	
