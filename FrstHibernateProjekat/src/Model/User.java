@@ -23,7 +23,7 @@ import javax.persistence.Table;
 //grupa anotacija koja menja u tabeli imena i kolone umesto naziva klase 
 //ide iznad klase, a ispod entiteta odnosi se na strukturu
 @Table(name = "korisnik")
-@Inheritance(strategy = InheritanceType.JOINED) //za nasledjivanje baze u hibernate u kasama Prodavac i Kupac nasledjenjim iz klase user
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) //za nasledjivanje baze u hibernate u kasama Prodavac i Kupac nasledjenjim iz klase user
 
 /*@DiscriminatorColumn(name = "VrstaUsera",  
 discriminatorType  = DiscriminatorType.STRING) //u bazi menja ime koje je hibernate sam dodelio DTYPE u VrstaUsera
@@ -31,7 +31,7 @@ discriminatorType  = DiscriminatorType.STRING) //u bazi menja ime koje je hibern
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@GeneratedValue(strategy = GenerationType.TABLE) 
 	
 	
 	//primitivni tipovi podataka
