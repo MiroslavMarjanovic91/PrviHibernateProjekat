@@ -202,9 +202,9 @@ public class GlavnaHibernateKlasa {
 		
 		
 		//21. dvadesetprvi cas 
-		HibernateDAO dao = new HibernateDAO();
+		//HibernateDAO dao = new HibernateDAO();
 		
-		
+/*		
 		User user = new User();
 		user.setUserName("Pera");
 
@@ -219,13 +219,84 @@ public class GlavnaHibernateKlasa {
 		
 		dao.snimiUsera(user);
 		dao.snimiUsera(prodavac);
+		dao.snimiUsera(kupac);*/
+		
+		//22. dvadesetdrugi cas 
+		
+		HibernateDAO dao = new HibernateDAO();
+		
+		//Hibernate Query Language ili HQL(HAKUEL) - Hajbernetov jezik koji se obraca direkno kasi
+		
+		//Nikada se ne obracamo tabeli, obracamo se dirkeno klasi - class, zaravo je to proksi objekat
+		
+		//from User; 
+		//Select userName from User; 
+		
+		//set iz jdbc-a u hajbernetu je Query object.getResultList - ovo uvek vraca Listu onoga sto zelimo
+		
+		
+		
+		
+		
+		
+		
+		
+/*		VizitCar vizitCar = new VizitCar();
+		vizitCar.setIme("Sone");
+		vizitCar.setEmail("nenad@gmail.com");
+		vizitCar.setBrTelefona("0647894512");
+		
+		List<VizitCar> kartice = new ArrayList<VizitCar>();
+		kartice.add(vizitCar);
+		
+		Kupac kupac = new Kupac();
+		kupac.setUserName("Nenad");
+		kupac.setPassword("nenad123");
+		kupac.setNovcanik(3000000);
+		kupac.setJmbg("2347854165879");
+		
 		dao.snimiUsera(kupac);
 		
+		Car car1 = new Car();
+		
+		car1.setMarka("Fiat");
+		car1.setModel("Punto");
+		car1.setGodiste(2005);
+		car1.setCena(30000);
+		car1.setRegistracija(true);
+		car1.setVrstaVozila(VrstaVozila.PUTNICKO); 
+		
+		
+		Car car2 = new Car();
+		car2.setMarka("BMW");
+		car2.setModel("740");
+		car2.setGodiste(2018);
+		car2.setCena(50000);
+		car2.setRegistracija(true);
+		car2.setVrstaVozila(VrstaVozila.PUTNICKO); 
+		
+		dao.snimiAutoUBazu(car1);
+		dao.snimiAutoUBazu(car2);*/
+		
+/*	User kupac = dao.vratiUseraPoID(4);
+		
+		Car car1 = dao.vratiAutoPoID(1);
+		Car car2 = dao.vratiAutoPoID(2);
+		
+		car1.setKorisnik(kupac);
+		car2.setKorisnik(kupac);
+		
+		List<Car> nenadoviAutici = new ArrayList<Car>();
+		nenadoviAutici.add(car1);
+		nenadoviAutici.add(car2);
+		
+		dao.spojiUseraIcar(kupac, nenadoviAutici);*/
 		
 		
 		
 		
-
+		
+		
 	}
 
 }
