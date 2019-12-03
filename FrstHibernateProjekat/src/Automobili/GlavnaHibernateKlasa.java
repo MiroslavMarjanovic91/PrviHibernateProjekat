@@ -225,22 +225,6 @@ public class GlavnaHibernateKlasa {
 		
 		HibernateDAO dao = new HibernateDAO();
 		
-		//Hibernate Query Language ili HQL(HAKUEL) - Hajbernetov jezik koji se obraca direkno kasi
-		
-		//Nikada se ne obracamo tabeli, obracamo se dirkeno klasi - class, zaravo je to proksi objekat
-		
-		//from User; 
-		//Select userName from User; 
-		
-		//set iz jdbc-a u hajbernetu je Query object.getResultList - ovo uvek vraca Listu onoga sto zelimo
-		
-		
-		
-		
-		
-		
-		
-		
 /*		VizitCar vizitCar = new VizitCar();
 		vizitCar.setIme("Sone");
 		vizitCar.setEmail("nenad@gmail.com");
@@ -292,10 +276,22 @@ public class GlavnaHibernateKlasa {
 		
 		dao.spojiUseraIcar(kupac, nenadoviAutici);*/
 		
+		//Hibernate Query Language ili HQL(HAKUEL) - Hajbernetov jezik koji se obraca direkno kasi
 		
+		//Nikada se ne obracamo tabeli, obracamo se dirkeno klasi - class, zaravo je to proksi objekat
+				
+		//from User; 
+		//Select userName from User; 
+				
+        //set iz jdbc-a u hajbernetu je Query object.getResultList - ovo uvek vraca Listu onoga sto zelimo
 		
+		//List<Car> c = dao.dajMiSveAutomobileIzBaze();
 		
+		List<Car> c = dao.dajMiSveAutomobileIzBazeKojiSuJeftinijiOdZadateCene(2000);
 		
+		for (Car car: c) {
+			System.out.println(car.getMarka() + " " + car.getModel());
+		}
 		
 	}
 

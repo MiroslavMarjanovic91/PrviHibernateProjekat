@@ -3,10 +3,14 @@ package Controler;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+
 
 import Model.Car;
 import Model.User;
@@ -257,14 +261,86 @@ public void izlistajAutomobile(User user) {
 	}*/
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public List<Car> dajMiSveAutomobileIzBaze() {
+	Session sesija = factory.openSession();
+	sesija.beginTransaction();
 
+	List<Car> automobili = new ArrayList<Car>();
+//Hibernate Query Language ili HQL(HAKUEL) - Hajbernetov jezik koji se obraca direkno kasi
+//Nikada se ne obracamo tabeli, obracamo se dirkeno klasi - class, zaravo je to proksi objekat
+//from User; 
+//Select userName from User; 
+//set iz jdbc-a u hajbernetu je Query object.getResultList - ovo uvek vraca Listu onoga sto zelimo
+	
+	try {
+		String upit = "FROM car";
+		Query query = sesija.createQuery(upit);
+		automobili = query.getResultList();
+		
+				sesija.getTransaction().commit();
+		return automobili;
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+		sesija.getTransaction().rollback();
+		return null;
+	} finally {
+		sesija.close();
+	}
+	
+	}
+	
+	
+	public List<Car> dajMiSveAutomobileIzBazeKojiSuJeftinijiOdZadateCene(double odabranaCena) {
+	//U SQL bi bilo Select * from car where cena ?
+	//U hibernetu bice from Car where cena < :Snupi (bilo koji naziv) 
+	Session sesija = factory.openSession();
+	sesija.beginTransaction();
+
+	List<Car> automobili = new ArrayList<Car>();
+//Hibernate Query Language ili HQL(HAKUEL) - Hajbernetov jezik koji se obraca direkno kasi
+//Nikada se ne obracamo tabeli, obracamo se dirkeno klasi - class, zaravo je to proksi objekat
+//from User; 
+//Select userName from User; 
+//set iz jdbc-a u hajbernetu je Query object.getResultList - ovo uvek vraca Listu onoga sto zelimo
+	
+	try {
+		String upit = "FROM Car WHERE cena < :Snupi"; //ovde umesto znaka (?) ide (:)
+		Query query = sesija.createQuery(upit);
+		query.setParameter("Snupi", odabranaCena);
+		
+		automobili = query.getResultList();
+		
+				sesija.getTransaction().commit();
+		return automobili;
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+		sesija.getTransaction().rollback();
+		return null;
+	} finally {
+		sesija.close();
+	}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
